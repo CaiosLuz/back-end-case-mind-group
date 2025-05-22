@@ -10,4 +10,15 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME,
 });
 
+export const connectionDB = async() => {
+  try {
+    const connection = await pool.getConnection();
+    console.log('Conexão com o banco OK!');
+    connection.release();
+  } catch (error) {
+    console.error('Erro na conexão com banco:', error);
+    process.exit(1);
+  } 
+}
+
 export default pool;
