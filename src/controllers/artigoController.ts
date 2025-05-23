@@ -20,7 +20,7 @@ export const listarArtigos = (req: Request, res: Response) => {
         const artigos = results.map((artigo: any) => ({
             ...artigo,
             imagem_url: artigo.imagem_url
-                ? 'http://localhost:3001/uploads/${artigo.imagem_url}'
+                ? `http://localhost:3001/uploads/${artigo.imagem_url}`
                 : null,
         }));
 
