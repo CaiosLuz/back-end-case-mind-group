@@ -1,7 +1,7 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
-import { criarArtigo } from '../controllers/artigoController';
+import { criarArtigo, listarArtigos } from '../controllers/artigoController';
 
 const router = express.Router();
 
@@ -15,5 +15,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post('/artigos', upload.single('imagem'), criarArtigo);
+
+router.get('/artigos', listarArtigos);
 
 export default router;
